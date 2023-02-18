@@ -1,0 +1,367 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;900&display=swap");
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body {
+  background: url(https://cdn.shopify.com/s/files/1/0430/6721/1933/products/whiteash_95a4e576-dcf6-4f25-8059-9efc33a51765.jpg?v=1639120432);
+
+  margin: 0;
+}
+
+.App {
+  --background-image: url(https://img.freepik.com/free-photo/brown-wooden-flooring_53876-90802.jpg);
+
+  font-family: sans-serif;
+  text-align: center;
+  user-select: none;
+}
+
+.App.game-over .game-board {
+  pointer-events: none;
+}
+
+.app-header {
+  color: #4f3521;
+}
+
+.text-highlight {
+  position: relative;
+}
+
+@keyframes reveal-text-highlight {
+  100% {
+    clip-path: ellipse(100% 100% at 0% 50%);
+  }
+}
+
+.text-highlight::before {
+  position: absolute;
+  inset: 0 -5px;
+  z-index: -1;
+
+  content: "";
+
+  height: 100%;
+  width: 100%;
+  padding: 0px 5px;
+  margin: auto;
+
+  background: url(https://www.freepnglogos.com/uploads/paint-brush-png/paint-brush-strokes-transparent-28.png);
+  background-size: 100% 100%;
+  filter: invert(0.6) sepia(80%) hue-rotate(-25deg) saturate(500%)
+    brightness(140%);
+  opacity: 0.7;
+
+  clip-path: ellipse(0% 100% at 0% 50%);
+  animation: reveal-text-highlight 0.3s ease-out 1s forwards;
+}
+
+.game-board {
+  --board-accent-color: #999;
+  --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+  --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+  --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+  --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+  --rotate-seconds: 0.2s;
+  --rotate-scale: 1.5;
+
+  position: relative;
+
+  width: 300px;
+  aspect-ratio: 1;
+
+  padding: 15px;
+
+  display: flex;
+  flex-direction: column;
+
+  margin: auto;
+
+  /* #09a; */
+
+  background-color: rgb(90, 90, 90);
+  background-image: var(--background-image);
+  background-blend-mode: overlay;
+  box-shadow: var(--box-shadow-color-1) 0px 54px 55px,
+    var(--box-shadow-color-2) 0px -12px 30px,
+    var(--box-shadow-color-2) 0px 4px 6px,
+    var(--box-shadow-color-3) 0px 12px 13px,
+    var(--box-shadow-color-4) 0px -3px 5px;
+  box-sizing: border-box;
+
+  transition: 0.3s ease-out;
+}
+
+@keyframes rotate-0 {
+  50% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.025);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.012);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.017);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.009);
+
+    scale: 1.5;
+  }
+  100% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+
+    rotate: 0deg;
+    box-shadow: var(--box-shadow-color-1) 0px 54px 55px,
+      var(--box-shadow-color-2) 0px -12px 30px,
+      var(--box-shadow-color-2) 0px 4px 6px,
+      var(--box-shadow-color-3) 0px 12px 13px,
+      var(--box-shadow-color-4) 0px -3px 5px;
+  }
+}
+
+.game-board.rotate-0 {
+  animation: rotate-0 var(--rotate-seconds) ease-out;
+}
+
+@keyframes rotate-1 {
+  50% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.025);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.012);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.017);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.009);
+
+    scale: 1.5;
+  }
+  100% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+
+    rotate: 90deg;
+    box-shadow: var(--box-shadow-color-1) 54px 0px 55px,
+      var(--box-shadow-color-2) -12px 0px 30px,
+      var(--box-shadow-color-2) 4px 0px 6px,
+      var(--box-shadow-color-3) 12px 0px 13px,
+      var(--box-shadow-color-4) -3px 0px 5px;
+  }
+}
+
+.game-board.rotate-1 {
+  animation: rotate-1 var(--rotate-seconds) ease-out forwards;
+  /* rotate: 90deg; */
+}
+
+.game-board.rotate-1 .board-cell {
+  rotate: z -90deg;
+}
+
+.game-board.rotate-1 .board-cell:not(:last-child) {
+  border: none;
+  border-bottom: 2px solid var(--board-accent-color);
+}
+
+@keyframes rotate-2 {
+  50% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.025);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.012);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.017);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.009);
+
+    scale: 1.5;
+  }
+  100% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+
+    rotate: 180deg;
+    box-shadow: var(--box-shadow-color-1) 0px -54px 55px,
+      var(--box-shadow-color-2) 0px 12px 30px,
+      var(--box-shadow-color-2) 0px -4px 6px,
+      var(--box-shadow-color-3) 0px -12px 13px,
+      var(--box-shadow-color-4) 0px 3px 5px;
+  }
+}
+
+.game-board.rotate-2 {
+  animation: rotate-2 var(--rotate-seconds) ease-out forwards;
+  /* rotate: 90deg; */
+}
+
+.game-board.rotate-2 .board-cell {
+  rotate: z -180deg;
+}
+
+.game-board.rotate-2 .board-cell:not(:last-child) {
+  border: none;
+  border-left: 2px solid var(--board-accent-color);
+}
+
+@keyframes rotate-3 {
+  50% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.025);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.012);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.017);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.009);
+
+    scale: 1.5;
+  }
+  100% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+
+    rotate: 270deg;
+    box-shadow: var(--box-shadow-color-1) -54px 0px 55px,
+      var(--box-shadow-color-2) 12px 0px 30px,
+      var(--box-shadow-color-2) -4px 0px 6px,
+      var(--box-shadow-color-3) -12px 0px 13px,
+      var(--box-shadow-color-4) 3px 0px 5px;
+  }
+}
+
+.game-board.rotate-3 {
+  animation: rotate-3 var(--rotate-seconds) ease-out forwards;
+  /* rotate: 90deg; */
+}
+
+.game-board.rotate-3 .board-cell {
+  rotate: z -270deg;
+}
+
+.game-board.rotate-3 .board-cell:not(:last-child) {
+  border: none;
+  border-top: 2px solid var(--board-accent-color);
+}
+
+.game-board::before {
+  position: absolute;
+  inset: 0;
+
+  /* content: attr(data-player); */
+
+  width: fit-content;
+  height: fit-content;
+  margin: auto;
+
+  font-family: "Montserrat", sans-serif;
+
+  color: var(--board-accent-color);
+  font-size: 300px;
+  font-weight: 900;
+
+  opacity: 0.4;
+  mix-blend-mode: multiply;
+}
+
+.game-board .board-row {
+  flex: 1;
+  display: flex;
+  mix-blend-mode: screen;
+}
+
+.game-board .board-cell {
+  position: relative;
+
+  flex: 1;
+
+  font-family: "Montserrat", sans-serif;
+
+  color: var(--board-accent-color);
+  font-size: 50px;
+  font-weight: 100;
+
+  cursor: pointer;
+
+  border: none;
+
+  background: transparent;
+}
+
+@keyframes cell-win {
+  50% {
+    font-size: 70px;
+  }
+}
+
+.game-board .board-cell.winner {
+  font-weight: 700;
+  animation: cell-win 0.3s ease-in-out;
+}
+
+.game-board .board-cell.winner::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+
+  mix-blend-mode: normal;
+  background-blend-mode: normal;
+
+  /* content: ""; */
+
+  height: 100%;
+
+  border: 0.5px solid #e5b085;
+}
+
+/* .game-board .board-cell.winner:not(:last-of-type)::after {
+} */
+
+.game-board .board-cell.winner.delay-2 {
+  transition: 0.3s ease-in;
+  animation-delay: 0.2s;
+}
+
+.game-board .board-cell.winner.delay-1 {
+  transition: 0.2s ease-in;
+  animation-delay: 0.1s;
+}
+
+.game-board .board-cell.winner.delay-0 {
+  transition: 0.1s ease-in;
+  animation-delay: 0s;
+}
+
+.game-board .board-cell:not(:last-child) {
+  border-right: 2px solid var(--board-accent-color);
+}
+
+.game-board .board-row:not(:last-child) {
+  border-bottom: 2px solid var(--board-accent-color);
+}
+
+.game-action {
+  --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+  --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+  --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+  --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+
+  padding: 5px 15px 10px;
+
+  color: #eee;
+  font-size: 40px;
+  line-height: 0.9;
+
+  cursor: pointer;
+
+  border: none;
+  border-radius: 5px;
+
+  background: var(--background-image);
+  background-position: center;
+  background-size: stretch;
+  background-repeat: no-repeat;
+
+  box-shadow: var(--box-shadow-color-1) 0px 4px 5px,
+    var(--box-shadow-color-2) 0px -4px 10px,
+    var(--box-shadow-color-2) 0px 1px 3px, var(--box-shadow-color-3) 0px 2px 3px,
+    var(--box-shadow-color-4) 0px -3px 5px;
+}
