@@ -1,20 +1,20 @@
-import { NextApiRequest, NextApiResponse } from "next";
+// import { NextApiRequest, NextApiResponse } from "next";
+import { useSocketListeners } from "helpers/server";
+import { NextApiRequest } from "next";
 import { Server } from "socket.io";
+import { socketHandler } from "variables/server";
 
-const SocketHandler = (req: NextApiRequest, res: NextApiResponse) => {
+const SocketHandler = (_req: NextApiRequest, res: any) => {
+  // NextApiResponse
   if (res.socket.server.io) {
     console.log("Socket is already running");
   } else {
     console.log("Socket is initializing");
     const io = new Server(res.socket.server);
     res.socket.server.io = io;
+    socketHandler.io = io;
 
-    io.on("connection", (socket) => {
-      socket.on("input-change", (msg) => {
-        console.log("input-change!", msg);
-        socket.broadcast.emit("update-input", msg);
-      });
-    });
+    io.on("connection", useSocketListeners);
   }
   res.end();
 };

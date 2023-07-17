@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;900");
+
+* {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+html,
+body {
+  font-family: sans-serif;
+  user-select: none;
+
+  height: 100%;
+
+  color: rgb(0 0 0 / 0.8);
+
+  margin: 0;
+}
+
+body > div {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.app-header {
+  color: #4f3521;
+  isolation: isolate;
+}
+
+.text-highlight {
+  position: relative;
+}
+
+@keyframes reveal-text-highlight {
+  100% {
+    clip-path: ellipse(100% 100% at 0% 50%);
+  }
+}
+
+.text-highlight::before {
+  position: absolute;
+  inset: 0 -5px;
+  z-index: -1;
+
+  content: "";
+
+  height: 100%;
+  width: 100%;
+  padding: 0px 5px;
+  margin: auto;
+
+  background: url(/assets/img/highlight-bg.png);
+  background-size: 100% 100%;
+  filter: invert(0.6) sepia(80%) hue-rotate(-25deg) saturate(500%)
+    brightness(140%);
+  opacity: 0.7;
+
+  clip-path: ellipse(0% 100% at 0% 50%);
+  animation: reveal-text-highlight 0.3s ease-out 1s forwards;
+}

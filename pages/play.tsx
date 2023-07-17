@@ -1,17 +1,19 @@
-import "../src/assets/css/play.css";
-import Board from "../src/Board";
 import React from "react";
+import Board from "src/Board";
+import "src/assets/css/play.css";
+import "public/assets/css/board.css";
+import router from "next/router";
 
 export default function App() {
   const [winner, setWinner] = React.useState("");
   const [gameOver, setGameOver] = React.useState(false);
-
-  const boardRef = React.useRef<{ [key: string]: any }>();
-
-  const newGame = () => boardRef.current && boardRef.current.newGame();
+  const [newGame, setNewGame] = React.useState<boolean>(false);
 
   return (
     <div className={`App ${gameOver ? "game-over" : ""}`}>
+      <button className="" onClick={router.back}>
+        &lt;
+      </button>
       <h1 className="app-header">
         Tic Tac <span className="text-highlight">though</span>..
       </h1>
@@ -20,13 +22,14 @@ export default function App() {
       <Board
         {...{
           setGameOver,
-          setWinner
+          setWinner,
+          newGame,
+          setNewGame,
         }}
-        ref={boardRef}
       />
       <h4>{gameOver ? (winner ? winner + " won!" : "Game Over!") : ""}</h4>
-      <button className="game-action" onClick={newGame}>
-        ↻{/* {gameOver ? "New Game" : "Restart"} */}
+      <button className="game-action" onClick={() => setNewGame(true)}>
+        ↻
       </button>
     </div>
   );

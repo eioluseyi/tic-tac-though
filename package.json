@@ -5,25 +5,30 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "type-check": "tsc"
+    "type-check": "tsc",
+    "lint": "next lint"
   },
   "main": "pages/index.tsx",
   "dependencies": {
     "@types/node": "18.14.0",
     "@types/react": "16.9.11",
     "@types/react-dom": "16.9.3",
+    "@types/styled-components": "^5.1.26",
     "@zeit/next-css": "1.0.1",
+    "eslint": "^8.34.0",
     "next": "9.1.1",
-    "pusher": "5.1.2",
-    "pusher-js": "8.0.1",
-    "react": "latest",
-    "react-dom": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-toastify": "9.0.3",
     "socket.io": "4.6.0",
     "socket.io-client": "4.6.0",
-    "typescript": "3.6.4",
-    "uuid": "9.0.0"
+    "styled-components": "^5.3.8",
+    "typescript": "3.6.4"
   },
   "license": "ISC",
   "keywords": [],
-  "description": ""
+  "description": "",
+  "devDependencies": {
+    "babel-plugin-styled-components": "^2.0.7"
+  }
 }

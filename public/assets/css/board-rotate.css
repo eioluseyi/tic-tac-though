@@ -1,0 +1,127 @@
+@keyframes rotate-0 {
+  50% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.025);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.012);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.017);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.009);
+
+    scale: 1.5;
+  }
+  100% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+
+    rotate: 0deg;
+    box-shadow: var(--box-shadow-color-1) 0px 54px 55px,
+      var(--box-shadow-color-2) 0px -12px 30px,
+      var(--box-shadow-color-2) 0px 4px 6px,
+      var(--box-shadow-color-3) 0px 12px 13px,
+      var(--box-shadow-color-4) 0px -3px 5px;
+  }
+}
+
+/* rotate: 0deg; */
+.game-board.rotate-0 {
+  animation: rotate-0 var(--rotate-seconds) ease-out;
+}
+
+@keyframes rotate-1 {
+  50% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.025);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.012);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.017);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.009);
+
+    scale: 1.5;
+  }
+  100% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+
+    rotate: 90deg;
+    box-shadow: var(--box-shadow-color-1) 54px 0px 55px,
+      var(--box-shadow-color-2) -12px 0px 30px,
+      var(--box-shadow-color-2) 4px 0px 6px,
+      var(--box-shadow-color-3) 12px 0px 13px,
+      var(--box-shadow-color-4) -3px 0px 5px;
+  }
+}
+
+/* rotate: 90deg; */
+.game-board.rotate-1 {
+  animation: rotate-1 var(--rotate-seconds) ease-out forwards;
+}
+
+.game-board.rotate-1 .board-cell .cell-text {
+  rotate: z -90deg;
+}
+
+@keyframes rotate-2 {
+  50% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.025);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.012);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.017);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.009);
+
+    scale: 1.5;
+  }
+  100% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+
+    rotate: 180deg;
+    box-shadow: var(--box-shadow-color-1) 0px -54px 55px,
+      var(--box-shadow-color-2) 0px 12px 30px,
+      var(--box-shadow-color-2) 0px -4px 6px,
+      var(--box-shadow-color-3) 0px -12px 13px,
+      var(--box-shadow-color-4) 0px 3px 5px;
+  }
+}
+
+/* rotate: 180deg; */
+.game-board.rotate-2 {
+  animation: rotate-2 var(--rotate-seconds) ease-out forwards;
+}
+
+.game-board.rotate-2 .board-cell .cell-text {
+  rotate: z -180deg;
+}
+
+@keyframes rotate-3 {
+  50% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.025);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.012);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.017);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.009);
+
+    scale: 1.5;
+  }
+  100% {
+    --box-shadow-color-1: rgba(0, 0, 0, 0.25);
+    --box-shadow-color-2: rgba(0, 0, 0, 0.12);
+    --box-shadow-color-3: rgba(0, 0, 0, 0.17);
+    --box-shadow-color-4: rgba(0, 0, 0, 0.09);
+
+    rotate: 270deg;
+    box-shadow: var(--box-shadow-color-1) -54px 0px 55px,
+      var(--box-shadow-color-2) 12px 0px 30px,
+      var(--box-shadow-color-2) -4px 0px 6px,
+      var(--box-shadow-color-3) -12px 0px 13px,
+      var(--box-shadow-color-4) 3px 0px 5px;
+  }
+}
+
+/* rotate: 270deg; */
+.game-board.rotate-3 {
+  animation: rotate-3 var(--rotate-seconds) ease-out forwards;
+}
+
+.game-board.rotate-3 .board-cell .cell-text {
+  rotate: z -270deg;
+}
